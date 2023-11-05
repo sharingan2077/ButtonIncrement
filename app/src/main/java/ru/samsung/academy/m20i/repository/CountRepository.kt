@@ -20,7 +20,12 @@ class CountRepository(private val countDao: CountDao) {
 
     suspend fun incrementCount(count : Count) : Count {
         count.number += 1
-        countDao.incrementCount(count)
+        countDao.updateCount(count)
+        return count
+    }
+    suspend fun resetCount(count: Count) : Count {
+        count.number = 0
+        countDao.updateCount(count)
         return count
     }
 

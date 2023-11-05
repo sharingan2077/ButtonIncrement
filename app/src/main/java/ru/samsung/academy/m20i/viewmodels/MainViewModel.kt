@@ -33,6 +33,12 @@ class MainViewModel(private val countRepository: CountRepository) : ViewModel() 
             count.postValue(countRepository.incrementCount(count.value!!))
         }
     }
+    fun resetCount() {
+        viewModelScope.launch {
+            count.postValue(countRepository.resetCount(count.value!!))
+        }
+    }
+
     fun deleteCount() =
         viewModelScope.launch {
             countRepository.deleteCount()

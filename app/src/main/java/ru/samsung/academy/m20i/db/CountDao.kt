@@ -17,7 +17,7 @@ interface CountDao  {
     suspend fun insertCount(count: Count) : Long
 
     @Update
-    suspend fun incrementCount(count : Count)
+    suspend fun updateCount(count : Count)
 
     @Query("SELECT * FROM count_table")
     suspend fun getCount() : Count?
